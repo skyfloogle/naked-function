@@ -24,7 +24,7 @@ fn validate_sig(sig: &Signature) -> Result<()> {
         Some(Abi {
             extern_token: _,
             name: Some(name),
-        }) if matches!(&*name.value(), "C" | "C-unwind") => {}
+        }) if matches!(&*name.value(), "C" | "C-unwind" | "fastcall") => {}
         _ => bail!(
             &sig.abi,
             "#[naked] functions must be `extern \"C\"` or `extern \"C-unwind\"`"
